@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	
+	<meta charset="utf-8">
+	<title>NY Times Search App</title>
+
+	<!-- Link Styling -->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<!-- Link jQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+	
+	<!-- Title -->
+	<div class="jumbotron">
+		<h1>NY Times Search</h1>
+	</div>
+
+	<!-- Forms Panel -->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Search Parameters</h3>
+		</div>
+		<div class="panel-body">
+			<form>
+		  		<div class="form-group">
+		    		<label for="searchTermInput">Search Term:</label>
+		    		<input type="term" class="form-control" id="searchTermInput">
+		  		</div>
+
+		<div class="form-group">
+		    <label for="exampleInputPassword1">Number of Records to Retrieve (1, 5, or 10):</label>
+		    <input class="form-control" id="numberInputRetrieved">
+		 </div>
+
+		 <div class="form-group">
+		    <label for="exampleInputPassword1">Start year (Optional):</label>
+		    <input class="form-control" id="startYearInput">
+		 </div>
+
+		 <div class="form-group">
+		    <label for="exampleInputPassword1">End year (Optional):</label>
+		    <input class="form-control" id="endYearInput">
+		 </div>
+		  
+		 <button type="search" class="btn btn-primary searchButton">Search</button>
+		 <button type="clearResults" class="btn btn-primary clearButton">Clear Results</button>
+
+		</form>
+
+	  </div>
+	  
+	</div>
+
+	<!-- Results Panel -->
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">Top Articles</h3>
+	  </div>
+	  <div class="panel-body">
+	
+		<div class="article-output">
+		</div>
+
+	  </div>
+	</div>
+
+	<!-- Link my JavaScript -->
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
+
+</body>
+</html>
