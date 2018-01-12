@@ -30,8 +30,8 @@ $(document).ready(function() {
 		}
 
 		$.ajax({
-			URL: queryURL
-			method: "GET"
+			URL: queryURL,
+			method: "GET",
 		}).then(function(response) {
 
 			console.log(response);
