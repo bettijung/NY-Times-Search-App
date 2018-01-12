@@ -1,3 +1,4 @@
+//App
 
 $(document).ready(function() {
 		$(".searchButton").on("click", function(event) {
