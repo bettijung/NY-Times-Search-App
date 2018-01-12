@@ -1,8 +1,9 @@
 
 $(document).ready(function() {
+		$(".searchButton").on("click", function(event) {
 
-	$(".searchButton").on("click", function() {
-
+			event.preventDefault();
+		console.log("hello");
 		let queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + searchTerms + "&fq=" + numResults;
 		let apiKey =  "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
 
@@ -30,8 +31,8 @@ $(document).ready(function() {
 		}
 
 		$.ajax({
-			URL: queryURL
-			method: "GET"
+			URL: queryURL,
+			method: "GET",
 		}).then(function(response) {
 
 			console.log(response);
@@ -47,13 +48,20 @@ $(document).ready(function() {
 			$("#article-output").append(head, byline, pub)
 			}
 
+		// close then
 		});
 
+		//close ajax callback
 		});
 
 		$(".clearButton").on("click", function() {
 		/*Clears the output*/
 	    $(".article-output").text("")
+	
+	  });
+
 	});
 
-});
+
+
+		
