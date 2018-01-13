@@ -82,10 +82,13 @@ $(document).ready(function() {
 			throw err;
 		});
 		// end of ajax call
+
 		$(".clearButton").on("click", function() {
 
-			$(."article-output").text("")
-		})
+			$(."article-output").empty();
+			
+		});
+
 	});
 
 })
