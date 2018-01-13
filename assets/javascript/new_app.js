@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	// universal object
-	let NYTObj = {
+	let O = {
 		baseURL: "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=",
 		apiKey: "b9f91d369ff59547cd47b931d8cbc56b:0:74623931",
 
@@ -22,26 +22,26 @@ $(document).ready(function() {
 		// creates the URL to be used based on field inputs
 		queryBuild: function() {
 
-			console.log(NYTObj.searchTerms);
-			console.log(NYTObj.numResults);
-			console.log(NYTObj.startYear);
-			console.log(NYTObj.endYear);
+			console.log(O.searchTerms);
+			console.log(O.numResults);
+			console.log(O.startYear);
+			console.log(O.endYear);
 
-			let baseQueryURL = NYTObj.baseURL + NYTObj.apiKey + "&q=" + NYTObj.searchTerms;
+			let baseQueryURL = O.baseURL + O.apiKey + "&q=" + O.searchTerms;
 
 			// checks if date fields have been used and acts accordingly
 			// NOTE: must use "YYYYMMDD" format, code should be added later to make this easier
-			if(NYTObj.startYear === "" && NYTObj.endYear === "") {
+			if(O.startYear === "" && O.endYear === "") {
 				return(baseQueryURL);
 			}
-			else if(NYTObj.startYear === "") {
-				return(baseQueryURL + "&end_date=" + NYTObj.endYear);
+			else if(O.startYear === "") {
+				return(baseQueryURL + "&end_date=" + O.endYear);
 			}
-			else if(NYTObj.endYear === "") {
-				return(baseQueryURL + "&begin_date=" + NYTObj.startYear); 
+			else if(O.endYear === "") {
+				return(baseQueryURL + "&begin_date=" + O.startYear); 
 			}
 			else {
-				return(baseQueryURL + "&end_date=" + NYTObj.endYear + "&begin_date=" + NYTObj.startYear);
+				return(baseQueryURL + "&end_date=" + O.endYear + "&begin_date=" + O.startYear);
 			}
 
 		},
@@ -52,7 +52,7 @@ $(document).ready(function() {
 
 		event.preventDefault();
 
-		let queryURL = NYTObj.queryBuild();
+		let queryURL = O.queryBuild();
 		console.log(queryURL);
 
 		$.ajax({
@@ -63,7 +63,7 @@ $(document).ready(function() {
 			console.log(result);
 
 			// prints relevamt info to screen for as many articles as the user wishes (up to 10, mulitple pages will have to be called to increase results)
-			for(i = 0; i < parseInt(NYTObj.numResults); i++) {
+			for(i = 0; i < parseInt(O.numResults); i++) {
 
 				let head = result.response.docs[i].headline.main,
 						byline = result.response.docs[i].byline.original,
