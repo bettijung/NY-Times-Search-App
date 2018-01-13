@@ -1,9 +1,11 @@
 $(document).ready(function() {
 
+	// universal object
 	let NYTObj = {
 		baseURL: "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=",
 		apiKey: "b9f91d369ff59547cd47b931d8cbc56b:0:74623931",
 
+		// supplies values for field inputs when called for
 		get searchTerms() {
 			return $("#searchTermInput").val().split(" ").join("+");
 		},
@@ -17,6 +19,7 @@ $(document).ready(function() {
 			return $("#endYearInput").val();
 		},
 
+		// creates the URL to be used based on field inputs
 		queryBuild: function() {
 
 			console.log(NYTObj.searchTerms);
@@ -26,6 +29,8 @@ $(document).ready(function() {
 
 			let baseQueryURL = NYTObj.baseURL + NYTObj.apiKey + "&q=" + NYTObj.searchTerms;
 
+			// checks if date fields have been used and acts accordingly
+			// NOTE: must use "YYYYMMDD" format, code should be added later to make this easier
 			if(NYTObj.startYear === "" && NYTObj.endYear === "") {
 				return(baseQueryURL);
 			}
@@ -42,6 +47,7 @@ $(document).ready(function() {
 		},
 	}
 
+	// initializes call and response once the search button is clicked
 	$(".searchButton").on("click", function(event) {
 
 		event.preventDefault();
@@ -56,6 +62,7 @@ $(document).ready(function() {
 
 			console.log(result);
 
+			// prints relevamt info to screen for as many articles as the user wishes (up to 10, mulitple pages will have to be called to increase results)
 			for(i = 0; i < parseInt(NYTObj.numResults); i++) {
 
 				let head = result.response.docs[i].headline.main,
@@ -74,6 +81,7 @@ $(document).ready(function() {
 		}).fail(function(err) {
 			throw err;
 		});
+		// end of ajax call
 
 	});
 
