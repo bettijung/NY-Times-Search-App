@@ -4,14 +4,15 @@ $(document).ready(function() {
 		$(".searchButton").on("click", function(event) {
 
 			event.preventDefault();
-		console.log("hello");
-		let queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + searchTerms + "&fq=" + numResults;
-		let apiKey =  "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
+		let apiKey = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
+		
 
 		let searchTerms = $("#searchTermInput").val().split(" ").join("+");
 		let numResults = $("#numberInputRetrieved").val();
 		let startYear = $("#startYearInput").val();
 		let endYear = $("#endYearInput").val();
+
+		let queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + searchTerms + "&fq=" + numResults;
 
 		console.log(searchTerms);
 		console.log(numResults);
