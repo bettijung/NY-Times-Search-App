@@ -66,7 +66,7 @@ $(document).ready(function() {
 			for(i = 0; i < parseInt(O.numResults); i++) {
 
 				let head = result.response.docs[i].headline.main,
-						byline = result.response.docs[i].byline.original,
+						byline = (result.response.docs[i].byline) ? 'result.response.docs[i].byline.original' : "",
 						pub = result.response.docs[i].pub_date,
 						web = result.response.docs[i].web_url;
 
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 		$(".clearButton").on("click", function() {
 
-			$(."article-output").empty();
+			$(".article-output").empty();
 			
 		});
 
