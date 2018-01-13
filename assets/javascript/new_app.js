@@ -35,13 +35,13 @@ $(document).ready(function() {
 				return(baseQueryURL);
 			}
 			else if(O.startYear === "") {
-				return(baseQueryURL + "&end_date=" + O.endYear);
+				return(baseQueryURL + "&end_date=" + O.endYear + "0101");
 			}
 			else if(O.endYear === "") {
-				return(baseQueryURL + "&begin_date=" + O.startYear); 
+				return(baseQueryURL + "&begin_date=" + O.startYearv + "0101"); 
 			}
 			else {
-				return(baseQueryURL + "&end_date=" + O.endYear + "&begin_date=" + O.startYear);
+				return(baseQueryURL + "&end_date=" + O.endYear + "0101" + "&begin_date=" + O.startYear + "0101");
 			}
 
 		},
